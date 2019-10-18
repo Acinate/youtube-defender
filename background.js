@@ -17,14 +17,34 @@ chrome.runtime.onInstalled.addListener(function() {
 });
 
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
-  // initialize variables
+  // initialize home variables
   chrome.tabs.executeScript(tab.id, {
-    file: 'dashboard/initializeDashboard.js'
+    file: 'home/initialize.js'
   });
-  if (tab.status == 'complete' && tab.url == 'https://www.youtube.com/') {
-    // attach dashboard mutation listener
-    chrome.tabs.executeScript(tab.id, {
-      file: 'dashboard/mutationObserver.js'
-    });
+  // initialize video variables
+  chrome.tabs.executeScript(tab.id, {
+    file: 'video/initialize.js'
+  });
+  if (tab.status == 'complete') {
+    console.log(tab);
+    if (tab.url == 'https://www.youtube.com/') {
+      // attach ehome mutation listener
+      chrome.tabs.executeScript(tab.id, {
+        file: 'home/observeHome.js'
+      });
+    } else if (tab.url.includes('https://www.youtube.com/watch')) {
+      // attach related mutation listener
+      chrome.tabs.executeScript(tab.id, {
+        file: 'video/observeRelated.js'
+      });
+      // attach comments mutation listener
+      chrome.tabs.executeScript(tab.id, {
+        file: 'video/observeComments.js'
+      });
+      // attach endscreen mutation listemer
+      chrome.tabs.executeScript(tab.id, {
+        file: 'video/observeEndscreen.js'
+      });
+    }
   }
 });

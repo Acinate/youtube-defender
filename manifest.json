@@ -23,11 +23,5 @@
     "48": "images/logo_64.png",
     "128": "images/logo_128.png"
   },
-  "content_scripts": [
-    {
-      "matches": ["https://youtube.com/"],
-      "js": ["/dashboard/mutationObserver.js"]
-    }
-  ],
   "manifest_version": 2
 }
