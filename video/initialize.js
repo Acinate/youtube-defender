@@ -1,5 +1,5 @@
 if (typeof initalizedVideo == 'undefined') {
-  console.log('Initializing Video');
+  // console.log('Initializing Video');
   initializedVideo = true;
   related = null;
   configRelated = null;

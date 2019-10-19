@@ -10,7 +10,7 @@ for (let e of ytdBrowse) {
 }
 
 if (dashboard != null && !attached) {
-  console.log('Attaching Mutation Observer to Dashboard');
+  // console.log('Attaching Mutation Observer to Dashboard');
   config = { attributes: true, childList: true, subtree: true };
 
   callback = function(mutationsList, observer) {

@@ -1,7 +1,7 @@
 endscreen = document.getElementsByClassName('ytp-endscreen-content')[0];
 
 if (endscreen != null && !attachedEndscreen) {
-  console.log('Attaching Mutation Observer to Endscreen');
+  // console.log('Attaching Mutation Observer to Endscreen');
   configEndscreen = { attributes: true, childList: true, subtree: true };
 
   callbackEndscreen = function(mutationsList, observer) {

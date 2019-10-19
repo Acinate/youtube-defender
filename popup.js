@@ -1,24 +1,4 @@
-let changeColor = document.getElementById('changeColor');
-let removeVideos = document.getElementById('removeVideos');
-
-chrome.storage.sync.get('color', function(data) {
-  changeColor.style.backgroundColor = data.color;
-  changeColor.setAttribute('value', data.color);
+const settings = document.getElementById('settingsLink');
+settings.addEventListener('click', function() {
+  chrome.tabs.create({ url: 'chrome://extensions/?options=' + chrome.runtime.id });
 });
-
-changeColor.onclick = function(element) {
-  let color = element.target.value;
-  chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
-    chrome.tabs.executeScript(tabs[0].id, { code: 'document.body.style.backgroundColor = "' + color + '";' });
-  });
-};
-
-removeVideos.style.backgroundColor = 'red';
-
-removeVideos.onclick = function(element) {
-  chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
-    chrome.tabs.executeScript(tabs[0].id, {
-      code: 'document.getElementById("page-manager").innerHTML = "";'
-    });
-  });
-};

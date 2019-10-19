@@ -1,7 +1,7 @@
 related = document.getElementById('related');
 
 if (related != null && !attachedRelated) {
-  console.log('Attaching Mutation Observer to Related');
+  // console.log('Attaching Mutation Observer to Related');
   configRelated = { attributes: true, childList: true, subtree: true };
 
   callbackRelated = function(mutationsList, observer) {

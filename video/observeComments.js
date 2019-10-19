@@ -1,7 +1,7 @@
 comments = document.getElementById('comments');
 
 if (comments != null && !attachedComments) {
-  console.log('Attaching Mutation Observer to Comments');
+  // console.log('Attaching Mutation Observer to Comments');
   configComments = { attributes: true, childList: true, subtree: true };
 
   callbackComments = function(mutationsList, observer) {
