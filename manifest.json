@@ -2,7 +2,7 @@
   "name": "Youtube Defender",
   "version": "1.0",
   "description": "Defend yourself against the YouTube algorithm.",
-  "permissions": ["tabs", "activeTab", "declarativeContent", "storage", "http://*/", "https://*/"],
+  "permissions": ["tabs", "declarativeContent", "storage", "https://www.youtube.com/*"],
   "options_page": "options.html",
   "background": {
     "scripts": ["background.js"],

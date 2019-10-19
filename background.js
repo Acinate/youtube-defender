@@ -1,7 +1,10 @@
 chrome.runtime.onInstalled.addListener(function() {
-  // chrome.storage.sync.set({ color: '#3aa757' }, function() {
-  //   console.log('The color is green.');
-  // });
+  // initialize settings
+  chrome.storage.sync.set({ blockHome: true });
+  chrome.storage.sync.set({ blockRecommended: true });
+  chrome.storage.sync.set({ blockComments: true });
+  chrome.storage.sync.set({ blockRelated: true });
+
   chrome.declarativeContent.onPageChanged.removeRules(undefined, function() {
     chrome.declarativeContent.onPageChanged.addRules([
       {
